@@ -17,15 +17,22 @@ program
   .action(function () {
     var currentPath = path.resolve(process.cwd());
     var config = yaml.safeLoad(fs.readFileSync(currentPath + '/.gizi.yml'));
-    var projectPath = path.resolve(currentPath, config.path || '');
-    var ip = config.ip || '0.0.0.0';
-    var port = config.port || '8895';
-    gizi.server(projectPath, {
-      ip: ip,
-      port: port
-    }, function () {
-      console.log('Server started');
-    });
+  
+    if (config.source === 'fs') {
+      var projectPath = path.resolve(currentPath, config.path || '');
+      var ip = config.ip || '0.0.0.0';
+      var port = config.port || '8895';
+      gizi.server(projectPath, {
+        ip: ip,
+        port: port
+      }, function () {
+        console.log('Server started');
+      });
+    } else if (config.source === 'git') {
+      gizi.gitServer(path.resolve(currentPath, 'src'), {
+        repoUrl: config.url
+      });
+    }
   });
 
 program.parse(process.argv);
