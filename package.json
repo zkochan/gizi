@@ -1,0 +1,28 @@
+{
+  "name": "gizi",
+  "version": "0.0.0",
+  "description": "A static tag manager",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zkochan/gizi.git"
+  },
+  "keywords": [
+    "tag",
+    "manager"
+  ],
+  "author": "Zoltan Kochan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zkochan/gizi/issues"
+  },
+  "dependencies": {
+    "commander": "~2.8.1",
+    "js-yaml": "~3.2.7",
+    "connect": "~3.3.5",
+    "serve-static": "~1.9.2"
+  }
+}
