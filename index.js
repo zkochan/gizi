@@ -19,7 +19,7 @@ program
     var config = yaml.safeLoad(fs.readFileSync(currentPath + '/.gizi.yml'));
   
     if (config.source === 'fs') {
-      var projectPath = path.resolve(currentPath, config.path || '');
+      var projectPath = path.join(currentPath, config.path || '');
       var ip = config.ip || '0.0.0.0';
       var port = config.port || '8895';
       gizi.server(projectPath, {
@@ -29,8 +29,14 @@ program
         console.log('Server started');
       });
     } else if (config.source === 'git') {
-      gizi.gitServer(path.resolve(currentPath, 'src'), {
+      gizi.gitServer(path.join(currentPath, 'src'), {
         repoUrl: config.url
+      });
+      gizi.server(path.join(currentPath, '/src/release'), {
+        ip: '0.0.0.0',
+        port: 9595
+      }, function () {
+        console.log('Server started');
       });
     }
   });
