@@ -2,7 +2,10 @@
   "name": "gizi",
   "version": "0.0.1",
   "description": "A dynamic tag manager which is using Git as the data storage.",
-  "main": "index.js",
+  "preferGlobal": true,
+  "bin": {
+    "gizi": "index.js"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
