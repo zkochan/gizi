@@ -13,14 +13,15 @@ var defaultConfig = {
   siteFolderName: './site',
   buildFolderName: './build',
   port: 9595,
-  ip: '0.0.0.0'
+  ip: '0.0.0.0',
+  branch: 'master'
 };
 
 program
   .version(pkg.version);
 
 program
-  .command('server')
+  .command('serve')
   .description('Starts a Gizi server in current directory')
   .action(function() {
     var currentPath = path.resolve(process.cwd());
@@ -37,7 +38,8 @@ program
       });
       gizi.server(destinationPath, {
         ip: config.ip || defaultConfig.ip,
-        port: config.port || defaultConfig.port
+        port: config.port || defaultConfig.port,
+        branchName: config.branch || defaultConfig.branch
       }, function() {
         console.log('Server started');
       });
