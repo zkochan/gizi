@@ -27,12 +27,13 @@
     "url": "https://github.com/zkochan/gizi/issues"
   },
   "dependencies": {
-    "commander": "~2.8.1",
-    "js-yaml": "~3.2.7",
-    "connect": "~3.3.5",
-    "serve-static": "~1.9.2",
-    "nodegit": "~0.3.3",
     "chalk": "~1.0.0",
-    "mkdirp": "~0.5.0"
+    "commander": "~2.8.1",
+    "connect": "~3.3.5",
+    "js-yaml": "~3.2.7",
+    "mkdirp": "~0.5.0",
+    "nodegit": "~0.3.3",
+    "normalize-path": "^1.0.0",
+    "serve-static": "~1.9.2"
   }
 }

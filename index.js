@@ -13,7 +13,6 @@ program
 
 program
   .command('server')
-  .usage('starts a Gizi server in current directory')
   .description('Starts a Gizi server in current directory')
   .action(function() {
     var currentPath = path.resolve(process.cwd());
