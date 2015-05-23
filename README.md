@@ -30,6 +30,7 @@ port: 9595
 ip: 0.0.0.0
 source: git
 url: https://gitlab.com/zkochan/gizi-sample.git
+```
 
 The Git project's package.json has to contain a section with Gizi configs. E.g.:
 
