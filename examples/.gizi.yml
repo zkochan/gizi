@@ -1,5 +1,8 @@
+port: 9595
+ip: 0.0.0.0
 source: git
 url: https://gitlab.com/zkochan/gizi-sample.git
+buildFolder: ./build
 cmds:
   # this is required because npm has a bug
   # running install multiple times
