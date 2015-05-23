@@ -1,19 +1,17 @@
 {
   "name": "gizi",
   "version": "0.0.2",
-  "description": "A dynamic tag manager which is using Git as the data storage.",
+  "description": "A static server that autoupdates itself from a Git repository.",
   "preferGlobal": true,
   "bin": {
     "gizi": "index.js"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/zkochan/gizi.git"
   },
   "keywords": [
+    "gizi",
     "tag",
     "manager"
   ],
