@@ -1,6 +1,6 @@
 {
   "name": "gizi",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A dynamic tag manager which is using Git as the data storage.",
   "preferGlobal": true,
   "bin": {
@@ -30,6 +30,7 @@
     "chalk": "~1.0.0",
     "commander": "~2.8.1",
     "connect": "~3.3.5",
+    "cross-spawn": "^0.4.0",
     "js-yaml": "~3.2.7",
     "mkdirp": "~0.5.0",
     "nodegit": "~0.3.3",
