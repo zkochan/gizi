@@ -17,25 +17,18 @@ program
   .action(function() {
     var currentPath = path.resolve(process.cwd());
     var config = yaml.safeLoad(fs.readFileSync(currentPath + '/.gizi.yml'));
+    var destinationPath = path.join(currentPath, './release');
 
-    if (config.source === 'fs') {
-      var projectPath = path.join(currentPath, config.path || '');
-      var ip = config.ip || '0.0.0.0';
-      var port = config.port || '8895';
-      gizi.server(projectPath, {
-        ip: ip,
-        port: port
-      }, function() {
-        console.log('Server started');
-      });
-    } else if (config.source === 'git') {
-      gizi.gitServer(path.join(currentPath, 'src'), {
+    if (config.source === 'git') {
+      gizi.gitServer(path.join(currentPath, './src'), {
         repoUrl: config.url,
-        cmds: config.cmds
+        cmds: config.cmds || [],
+        source: path.join(currentPath, './src', config.buildFolder || './build'),
+        destination: destinationPath
       });
-      gizi.server(path.join(currentPath, '/src/release'), {
-        ip: '0.0.0.0',
-        port: 9595
+      gizi.server(destinationPath, {
+        ip: config.ip || '0.0.0.0',
+        port: config.port || 9595
       }, function() {
         console.log('Server started');
       });
