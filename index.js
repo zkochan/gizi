@@ -14,10 +14,10 @@ program
   .command('server')
   .usage('starts a Gizi server in current directory')
   .description('Starts a Gizi server in current directory')
-  .action(function () {
+  .action(function() {
     var currentPath = path.resolve(process.cwd());
     var config = yaml.safeLoad(fs.readFileSync(currentPath + '/.gizi.yml'));
-  
+
     if (config.source === 'fs') {
       var projectPath = path.join(currentPath, config.path || '');
       var ip = config.ip || '0.0.0.0';
@@ -25,7 +25,7 @@ program
       gizi.server(projectPath, {
         ip: ip,
         port: port
-      }, function () {
+      }, function() {
         console.log('Server started');
       });
     } else if (config.source === 'git') {
@@ -35,7 +35,7 @@ program
       gizi.server(path.join(currentPath, '/src/release'), {
         ip: '0.0.0.0',
         port: 9595
-      }, function () {
+      }, function() {
         console.log('Server started');
       });
     }
