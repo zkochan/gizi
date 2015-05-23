@@ -11,7 +11,6 @@ var gizi = require('./lib/gizi');
 var defaultConfig = {
   sourceFolderName: './src',
   siteFolderName: './site',
-  buildFolderName: './build',
   port: 9595,
   ip: '0.0.0.0',
   branch: 'master'
@@ -30,10 +29,9 @@ program
     var buildFolder = config.buildFolder || defaultConfig.buildFolderName;
 
     if (config.source === 'git') {
-      gizi.gitServer(path.join(currentPath, './src'), {
+      var repoPath = path.join(currentPath, defaultConfig.sourceFolderName);
+      gizi.gitServer(repoPath, {
         repoUrl: config.url,
-        cmds: config.cmds || [],
-        source: path.join(currentPath, defaultConfig.sourceFolderName, buildFolder),
         destination: destinationPath
       });
       gizi.server(destinationPath, {
