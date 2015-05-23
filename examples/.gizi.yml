@@ -1,0 +1,11 @@
+source: git
+url: https://gitlab.com/zkochan/gizi-sample.git
+cmds:
+  # this is required because npm has a bug
+  # running install multiple times
+  # http://stackoverflow.com/q/20764881/537682
+  - name: rm
+    args: ['-rf', 'node_modules/']
+  - name: npm
+    args: ['install']
+  - name: gulp

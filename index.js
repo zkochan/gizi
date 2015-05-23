@@ -30,7 +30,8 @@ program
       });
     } else if (config.source === 'git') {
       gizi.gitServer(path.join(currentPath, 'src'), {
-        repoUrl: config.url
+        repoUrl: config.url,
+        cmds: config.cmds
       });
       gizi.server(path.join(currentPath, '/src/release'), {
         ip: '0.0.0.0',
