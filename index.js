@@ -6,7 +6,8 @@ var path = require('path');
 var pkg = require('./package');
 var fs = require('fs');
 var yaml = require('js-yaml');
-var gizi = require('./lib/gizi');
+var staticServer = require('./lib/static-server');
+var gitListener = require('./lib/git-listener');
 
 var defaultConfig = {
   sourceFolderName: './src',
@@ -28,20 +29,27 @@ program
     var destinationPath = path.join(currentPath, defaultConfig.siteFolderName);
     var buildFolder = config.buildFolder || defaultConfig.buildFolderName;
 
-    if (config.source === 'git') {
-      var repoPath = path.join(currentPath, defaultConfig.sourceFolderName);
-      gizi.gitServer(repoPath, {
-        repoUrl: config.url,
-        destination: destinationPath
-      });
-      gizi.server(destinationPath, {
-        ip: config.ip || defaultConfig.ip,
-        port: config.port || defaultConfig.port,
-        branchName: config.branch || defaultConfig.branch
-      }, function() {
-        console.log('Server started');
-      });
-    }
+    var repoPath = path.join(currentPath, defaultConfig.sourceFolderName);
+
+    var repoOptions = config.sources.map(function(source) {
+      return {
+        name: source.name,
+        repoUrl: source.gitUrl,
+        repoPath: path.join(repoPath, './_repos/' + source.name)
+      };
+    });
+    gitListener({
+      sourceFolderName: repoPath,
+      siteFolderName: destinationPath
+    }, repoOptions, config.buckets);
+
+    staticServer(destinationPath, {
+      ip: config.ip || defaultConfig.ip,
+      port: config.port || defaultConfig.port,
+      branchName: config.branch || defaultConfig.branch
+    }, function() {
+      console.log('Server started');
+    });
   });
 
 program.parse(process.argv);

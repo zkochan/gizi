@@ -1,14 +1,12 @@
 port: 9595
 ip: 0.0.0.0
-source: git
-url: https://gitlab.com/zkochan/gizi-sample.git
-buildFolder: ./build
-cmds:
-  # this is required because npm has a bug
-  # running install multiple times
-  # http://stackoverflow.com/q/20764881/537682
-  - name: rm
-    args: ['-rf', 'node_modules/']
-  - name: npm
-    args: ['install']
-  - name: gulp
+sources:
+  - name: gizi-sample
+    gitUrl: https://gitlab.com/zkochan/gizi-sample.git
+buckets:
+  - name: sample
+    source: gizi-sample
+    branch: master
+  - name: sample-2
+    source: gizi-sample
+    branch: foo
