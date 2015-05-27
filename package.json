@@ -1,6 +1,6 @@
 {
   "name": "gizi",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "A static server that autoupdates itself from a Git repository.",
   "preferGlobal": true,
   "bin": {
