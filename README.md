@@ -22,14 +22,22 @@ Next, Gizi listens to changes in a the Git repository. When a new commit appears
 1. Create a **.gizi.yml** configuration file in the folder where the static server will be hosted.
 2. Run ``gizi serve`` in that folder.
 
-Gizi will clone the repository specified in the config file to a subfolder called **src** and start a static server that will serve files from a subfolder called **site**.
+Gizi will clone the repositories specified in the config file to a subfolder called **src** and start a static server that will serve files from a subfolder called **site**.
 
 A .gizi.yml config file can look like this:
 ``` yaml
 port: 9595
 ip: 0.0.0.0
-source: git
-url: https://gitlab.com/zkochan/gizi-sample.git
+sources:
+  - name: gizi-sample
+    gitUrl: https://gitlab.com/zkochan/gizi-sample.git
+buckets:
+  - name: sample
+    source: gizi-sample
+    branch: master
+  - name: lala
+    source: gizi-sample
+    branch: lala
 ```
 
 The Git project's package.json has to contain a section with Gizi configs. E.g.:
