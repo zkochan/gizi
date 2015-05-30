@@ -45,11 +45,13 @@ The Git project's package.json has to contain a section with Gizi configs. E.g.:
 ``` json
 "gizi": {
   "buildPath": "./_build",
-  "cmds": [
-    ["rm", "-rf", "node_modules/"],
-    ["npm", "install"],
-    ["gulp"]
-  ]
+  "cmds": {
+    "sample": [
+      ["rm", "-rf", "node_modules/"],
+      ["npm", "install"],
+      ["gulp"]
+    ]
+  }
 }
 ```
 
