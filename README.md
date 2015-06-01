@@ -1,4 +1,4 @@
-Gizi [![Dependency Status](https://david-dm.org/zkochan/gizi/status.svg?style=flat)](https://david-dm.org/zkochan/gizi) [![Build Status](http://img.shields.io/travis/zkochan/gizi.svg?style=flat)](https://travis-ci.org/zkochan/gizi)
+Gizi [![Dependency Status](https://david-dm.org/zkochan/gizi/status.svg?style=flat)](https://david-dm.org/zkochan/gizi) [![Build Status](http://img.shields.io/travis/zkochan/gizi.svg?style=flat)](https://travis-ci.org/zkochan/gizi) [![npm version](https://badge.fury.io/js/gizi.svg)](http://badge.fury.io/js/gizi)
 =====
 
 Gizi is a static server that autoupdates itself from a Git repository.
