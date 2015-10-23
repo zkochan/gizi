@@ -15,7 +15,7 @@ The static server is running from the moment when the **gizi serve** command is 
 
 At startup, Gizi clones the repository specified in **.gizi.yml** to the **src** subfolder. When all the repo files are created, Gizi runs a set of commands that are specified in the downloaded project's package.json. The commands are supposed to create the resources for the static server and write them to the build folder. The build folder name is also specified in package.json. When all the commands are executed, Gizi copies the files from the build folder to the static server.
 
-Next, Gizi listens to changes in a the Git repository. When a new commit appears in the branch which it listens to, Gizi updates the files in the local file system from the remote repository, executes the commands and updates the files on the server.
+Next, Gizi listens to changes in the Git repository. When a new commit appears in the branch which it listens to, Gizi updates the files in the local file system from the remote repository, executes the commands and updates the files on the server.
 
 # How to configure it?
 
